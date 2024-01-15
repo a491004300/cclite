@@ -1,0 +1,222 @@
+[
+  {
+    "name": "fetch_latest_news",
+    "description": "通过'实时要闻''实时新闻'等口令来获取来自澎湃新闻最新的实时要闻、时事热点新闻",
+    "parameters": {
+      "type": "object",
+      "properties": {}
+    }
+  },
+  {
+    "name": "fetch_financial_news",
+    "description": "用户通过'财经头条''实时财经'等口令从财经网站上获取最新的7*24小时实时财经新闻和摘要信息。",
+    "parameters": {
+      "type": "object",
+      "properties": {}
+    }
+  },
+  {
+    "name": "fetch_cls_news",
+    "description": "用户通过'财联社'等口令，获取财联社最新重要新闻。",
+    "parameters": {
+      "type": "object",
+      "properties": {}
+    }
+  },
+  {
+    "name": "fetch_ai_news",
+    "description": "获取最新的AI相关新闻。",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "max_items": {
+          "type": "integer",
+          "description": "返回的最大新闻条目数，默认是8。"
+        }
+      }
+    },
+    "required": ["max_items"]
+  },
+  {
+    "name": "get_morning_news",
+    "description": "获取每日早报信息",
+    "parameters": {
+      "type": "object",
+      "properties": {}
+    }
+  },
+  {
+    "name": "get_hotlist",
+    "description": "获取各种平台热榜信息",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "type类型: '知乎':zhihu', '微博':weibo', '微信':weixin', '百度':baidu', '头条':toutiao', '163':163', 'xl', '36氪':36k', 'hitory', 'sspai', 'csdn', 'juejin', 'bilibili', 'douyin', '52pojie', 'v2ex', 'hostloc'"
+        }
+      },
+      "required": ["type"]
+    }
+  },
+  {
+    "name": "bing_google_search",
+    "description": "通过必应或谷歌等关键词触发该搜索工具,通过调用谷歌和必应的搜索引擎,获取搜索结果",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "query": {
+          "type": "string",
+          "description": "提供需要搜索的关键词信息即可"
+        },
+        "count": {
+          "type": "string",
+          "description": "搜索页数,如无指定几页，默认2，最大值10"
+        }
+      },
+      "required": ["query", "count"]
+    }
+  },
+  {
+    "name": "webpilot_search",
+    "description": "默认搜索工具,只要带有'w'或'搜索'这个关键字,即可调用WebPilot,获取与特定搜索关键词相关的内容",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "search_term": {
+          "type": "string",
+          "description": ",用户输入的搜索关键词，用于检索相关内容如果用户输入内容中包括'w'或'搜索'这个关键字，则触发检索，例如'w成都的美食',则参数为'成都的美食'"
+        }
+      },
+      "required": ["search_term"]
+    }
+  },
+  {
+    "name": "fetch_hero_trending",
+    "description": "查询王者荣耀某个英雄的相关数据，如'xx英雄趋势'，'xx英雄热度','xx英雄数据'等相关指令来获取指定英雄近一个月/一段时间的热度趋势、胜率、受欢迎程度等数据",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "hero_name": {
+          "type": "string",
+          "description": "需要查询的英雄名称，例如云缨的热度，云缨的趋势，孙悟空的热度，孙悟空的趋势，参数就是：'云缨'、'孙悟空'等。"
+        }
+      },
+      "required": ["hero_name"]
+    }
+  },
+  {
+    "name": "fetch_top_tv_shows",
+    "description": "用户通过'电视剧热榜、电影热榜、榜单、热播剧'等相关指令来获取来自豆瓣的最热电视剧或电影榜单",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "limit": {
+          "type": "integer",
+          "description": "需要查询的热门内容数量，例如：5、10、20等，默认返回的limit为10条。",
+          "default": 10
+        },
+        "type": {
+          "type": "string",
+          "description": "指定想要查询的内容类型，可以是'tv'或'movie'，分别代表电视剧和电影。",
+          "default": "tv"
+        }
+      },
+      "required": ["limit", "type"]
+    }
+  },
+  {
+    "name": "fetch_nowplaying_movies",
+    "description": "通过'热映电影''影院热映''电影热映'等指令获取电影院的上映电影信息",
+    "parameters": {
+      "type": "object",
+      "properties": {}
+    }
+  },
+  {
+    "name": "get_hero_ranking",
+    "description": "通过'英雄排名', '上分英雄', '英雄梯度'等指令获取游戏王者荣耀的英雄排名信息",
+    "parameters": {
+      "type": "object",
+      "properties": {}
+    }
+  },
+  {
+    "name": "get_tv_show_interests",
+    "description": "当用户询问某电视剧或电影的信息时，涉及到'剧名'、'评价'、'评论'、'好看吗'等关键字时，例如‘电视剧莲花楼的评价'、'电影xxx''某某剧怎么样？'、'电影xxx好看吗'等，将获取指定电视剧或电影的信息和随机热门评论。",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "tv_show_name": {
+          "type": "string",
+          "description": "电视剧或电影的名称，例如：'倚天屠龙记', '射雕英雄传'等，返回电视剧或电影名作为查询参数。"
+        },
+        "media_type": {
+          "type": "string",
+          "description": "媒体类型，电影=movie, 电视剧=tv,可以是 'tv' 或 'movie'。"
+        },
+        "count": {
+          "type": "integer",
+          "description": "返回的评论数目，默认为10条。",
+          "default": 10
+        },
+        "orderBy": {
+          "type": "string",
+          "description": "评论的排序方式，可以是'hot'或其他值，默认为最热评论，参数为'hot'。如果明确要求最新的评论，那么返回的orderBy的请求参数为'latest'。",
+          "default": "hot"
+        }
+      },
+      "required": ["tv_show_name", "media_type"]
+    }
+  },
+  {
+    "name": "get_weather_by_city_name",
+    "description": "用户通过'天气、天气预报、今日天气'等相关指令来获取指定城市的当前天气和未来三天的天气预报，还包括穿衣和感冒指数。",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "city_name": {
+          "type": "string",
+          "description": "用户想要查询的城市名称，例如：'北京、上海、纽约'等。",
+          "default": "北京"
+        },
+        "adm": {
+          "type": "string",
+          "description": "行政区域的级别，可以是'city'或'province'，以缩小查询范围。例如:'湖北武汉''浙江省杭州市',那么adm分别就是湖北和浙江.",
+          "default": null
+        }
+      },
+      "required": ["city_name"]
+    }
+  },
+  {
+    "name": "request_train_info",
+    "description": "用户通过指定出发站、到达站和日期来获取火车票信息，返回指定数量的车次信息，格式化后返回火车票的车次及票价信息。",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "departure": {
+          "type": "string",
+          "description": "用户指定的出发站点名称，例如：'北京、上海、武汉'等。",
+          "default": null
+        },
+        "arrival": {
+          "type": "string",
+          "description": "用户指定的到达站点名称，例如：'北京、上海、武汉'等。",
+          "default": null
+        },
+        "num_trains": {
+          "type": "integer",
+          "description": "用户想要查询的车次数量，例如：3表示返回前3个车次的信息。",
+          "default": 3
+        },
+        "date": {
+          "type": "string",
+          "description": "用户指定的出发日期，参数格式必须为YYYY-MM-DD，如果不指定则不提供date参数。如果没提供年份信息，默认为2023-MM-DD",
+          "default": null
+        }
+      },
+      "required": ["departure", "arrival"]
+    }
+  }
+]
